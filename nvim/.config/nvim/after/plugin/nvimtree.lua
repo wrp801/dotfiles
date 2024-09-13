@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 local keymap = vim.keymap
 local api = require('nvim-tree.api')
 
-keymap.set("n", "<leader>nc", ":NvimTreeCollapse<CR>", { desc = "Collapse file explorer", noremap = true, silent = true }) -- collapse file explorer
+keymap.set("n", "<leader>nct", ":NvimTreeCollapse<CR>", { desc = "Collapse file explorer", noremap = true, silent = true }) -- collapse file explorer
 keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", { desc = "Refresh file explorer", noremap = true, silent = true })   -- refresh file explorer
 
 keymap.set("n", "<leader>nt", ':NvimTreeToggle<CR>', { desc = "Toggle file explorer", noremap = true, silent = true })     -- toggle file explorer
