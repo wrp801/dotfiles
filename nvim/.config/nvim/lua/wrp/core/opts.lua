@@ -72,3 +72,6 @@ vim.g.have_nerd_font=true
 -- don't have `o` add a comment
 vim.opt.formatoptions:remove "o"
 
+
+-- telescope hidden files toggle 
+vim.g.show_hidden_files=false

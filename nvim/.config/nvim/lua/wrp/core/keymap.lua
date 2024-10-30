@@ -53,7 +53,8 @@ function CloseOtherBuffers()
     end
   end
 end
-vim.keymap.set('n', '<leader>bx', ':lua CloseOtherBuffers()<CR>', { noremap = true, silent = true, desc = "Clsoe all buffers except the current one in focus" })
+-- vim.keymap.set('n', '<leader>bx', ':lua CloseOtherBuffers()<CR>', { noremap = true, silent = true, desc = "Clsoe all buffers except the current one in focus" })
+vim.keymap.set('n', '<leader>bx', ':%bd|e#|bd#<CR>', { noremap = true, silent = true, desc = "Close all buffers except the current one in focus"})
 
 -- vim-maximizer
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
