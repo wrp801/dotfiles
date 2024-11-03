@@ -44,7 +44,7 @@ config = function()
   local function find_files()
     local builtin = require 'telescope.builtin'
     if vim.g.show_hidden_files then
-      builtin.find_files({ hidden = true })
+      builtin.find_files({ hidden = true, no_ignore = true })
     else
       builtin.find_files()
     end
@@ -64,9 +64,8 @@ config = function()
   local builtin = require 'telescope.builtin'
   vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
   vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-  vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[S]earch [F]iles' })
+  vim.keymap.set('n', '<leader>pf', find_files, { desc = 'Search files. If the `show_hidden_files` is true, it will show all files, otherwise it will only show not dotfiles and what is not git ignored' })
   vim.keymap.set("n", '<leader>th', toggle_hidden_flag, { desc = "Turn the hidden files flag on for telescope" })
-  -- vim.keymap.set('n', '<leader>pf', find_files(), { desc = 'Find files. The '})
   vim.keymap.set('n', '<leader>fe',
     function() require('telescope.builtin').find_files({ hidden = true, search_file = '.env' }) end,
     { desc = 'Find the .env files' })
