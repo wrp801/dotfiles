@@ -50,7 +50,7 @@ vim.opt.splitbelow = true
 vim.wo.signcolumn = 'yes'
 
 -- set completeopt to have a better completion experience
-vim.o.completeopt = true
+-- vim.o.completeopt = true
 
 
 -- Preview substitutions live, as you type!
