@@ -40,6 +40,7 @@ lsp.ensure_installed({
   'rust_analyzer',
   'pyright',
   'gopls',
+  'julials'
 
 })
 
@@ -65,6 +66,16 @@ lsp.configure('rust-analyzer', {
       },
     },
   },
+})
+
+lsp.configure('julials', { 
+  on_new_config = function(new_config, _) 
+    local julia = vim.fn.expand("~/.julia/environments/nvim-lspconfig/bin/julia") 
+    if vim.fn.filereadable(julia) == 1 then 
+      vim.notify("Hello") 
+      new_config.cmd[1] = julia 
+    end 
+  end 
 })
 
 local cmp = require('cmp')
