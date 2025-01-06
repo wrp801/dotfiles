@@ -31,7 +31,7 @@ check_install() {
 
 # neovim
 install_neovim() {
-    check_install nvim curl "-LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
+    curl "-LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
     sudo rm -rf /opt/nvim
     sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
@@ -46,7 +46,7 @@ install_neovim() {
 
 # rust
 install_rust() {
-    check_install cargo "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
     source ~/.cargo/env/bin
     # if command -v cargo >/dev/null 2>&1; then 
     #     echo "Rust is already installed"
@@ -97,4 +97,22 @@ install_julia() {
 install_ripgrep() {
     sudo apt-get install ripgrep
 }
+
+# gnu stow 
+install_stow() {
+    apt install -y stow
+}
+
+## Installation 
+
+check_install nvim install_neovim
+check_install cargo install_rust
+check_install go install_go
+check_install tmux install_tmux_and_tpm
+check_install zsh install_zsh
+check_install node install_node
+check_install julia install_julia
+check_install ripgrep install_ripgrep
+check_install nix install_nix
+check_install stow install_stow
 
