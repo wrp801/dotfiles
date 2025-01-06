@@ -106,6 +106,7 @@ fi
 alias python=/usr/bin/python3.12
 alias nv=nvim
 alias tmux='tmux -2'
+alias gs='git status'
 
 # Personal preferences
 zh() {
@@ -154,13 +155,9 @@ td () {
     tmux detach
 }
 
-# git commands 
-
-gs () {
-    git status
-}
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -172,7 +169,6 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach-session -t entry || tmux new-session -s entry
 fi
 
-
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
@@ -181,3 +177,6 @@ path=('/home/wes/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# Created by `pipx` on 2024-12-09 04:40:47
+export PATH="$PATH:/home/wes/.local/bin"
