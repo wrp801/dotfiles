@@ -180,3 +180,5 @@ export PATH
 
 # Created by `pipx` on 2024-12-09 04:40:47
 export PATH="$PATH:/home/wes/.local/bin"
+
+if [ -e /home/wes/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

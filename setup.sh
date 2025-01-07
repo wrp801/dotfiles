@@ -26,13 +26,22 @@ install_tmux_and_tpm() {
 }
 
 # Check and install function
-check_install() {
+check_install_old() {
     if command -v "$1" &>/dev/null; then
         echo "$1 is already installed"
     else
         echo "Installing $1..."
         $2
     fi
+}
+
+check_install() {
+	if dpkg -l | grep -q "$1"; then 
+		echo "$1 is already installed"
+	else 
+		echo "Installing $1"
+		$2
+	fi
 }
 
 # Neovim
@@ -55,8 +64,8 @@ install_go() {
     curl -LO https://golang.org/dl/go1.23.4.linux-amd64.tar.gz
     sudo rm -rf /usr/local/go
     sudo tar -C /usr/local -xzf go1.23.4.linux-amd64.tar.gz
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
-    source ~/.bashrc
+    # echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+    # source ~/.bashrc
     rm go1.23.4.linux-amd64.tar.gz
 }
 
