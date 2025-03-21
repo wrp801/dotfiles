@@ -66,6 +66,8 @@ vim.keymap.set('n', '<leader>nv', ':so ~/.config/nvim/init.lua <CR>', { noremap 
 -- source single file
 vim.keymap.set('n', "<leader>so", ':so % <CR>', { noremap = true, silent = true, desc = "Source the current file in the buffer"})
 
+vim.keymap.set('n','<leader>zm', vim.cmd.ZenMode, {  noremap = true, silent = true, desc = "Toggles zen mode"})
+
 
 
 

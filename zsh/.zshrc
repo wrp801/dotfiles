@@ -182,3 +182,8 @@ export PATH
 export PATH="$PATH:/home/wes/.local/bin"
 
 if [ -e /home/wes/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# cargo 
+source "$HOME"/.cargo/env
+
+export PATH="$PATH:/opt/mssql-tools18/bin"
