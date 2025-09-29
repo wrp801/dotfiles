@@ -1,21 +1,29 @@
-return{
-  -- NOTE: everforest may be the best
-  "neanias/everforest-nvim",
-  -- Optional; default configuration will be used if setup isn't called.
-  --NOTE: config below is for everforest
-  config = function()
-    require("everforest").setup({
-      background = 'hard',
-    }
-    )
-  end,
-  -- NOTE: evergarden theme below
-  -- 'comfysage/evergarden',
-  -- priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
-  -- opts = {
-  --   transparent_background = true,
-  --   variant = 'hard', -- 'hard'|'medium'|'soft'
-  --   overrides = { }, -- add custom overrides
-  -- }
+return {
+  -- Everforest theme with config
+  {
+    "neanias/everforest-nvim",
+    priority = 1000, -- Load before other plugins
+    config = function()
+      require("everforest").setup({
+        background = 'hard',
+      })
+    end,
+  },
 
+  {
+    'Mofiqul/vscode.nvim'
+  }
+
+
+  -- Optional: evergarden theme, commented out
+  -- {
+  --   "comfysage/evergarden",
+  --   priority = 1000,
+  --   opts = {
+  --     transparent_background = true,
+  --     variant = 'hard',
+  --     overrides = {},
+  --   },
+  -- },
 }
+
