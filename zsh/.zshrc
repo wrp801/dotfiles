@@ -187,3 +187,15 @@ if [ -e /home/wes/.nix-profile/etc/profile.d/nix.sh ]; then . /home/wes/.nix-pro
 source "$HOME"/.cargo/env
 
 export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH="$HOME/bin:$PATH" # for nvim-vscode
+
+
+# The following block is for automatically connecting to ADO whenever a new shell session is launched
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)"
+fi
+
+if ! ssh-add -l | grep -q "$(basename ~/.ssh/devops_new)"; then
+    ssh-add ~/.ssh/devops_new
+fi
+
